@@ -1,0 +1,13 @@
+<div class="w-screen relative flex flex-col items-center pb-20 pt-20">
+  <div class="w-11/12 max-w-[900px] grid grid-cols-2 md:grid-cols-3 h-auto gap-2">
+    @for(item of menu; track item){
+      @if(item.visible){
+        <div (mouseover)="onHoverChange($index,true)" (mouseleave)="onHoverChange($index,false)" class="w-full aspect-square relative flex justify-center items-center cell cursor-pointer" (click)="navigateTo(item)">
+          <ng-container mediaframe *ngComponentOutlet="item.image.component;inputs: {'activarVideo':activeVideo[$index],'folder':'/assets/images/home/','url':item.image.image,'image':item.image};" />
+          <span [ngClass]="activeVideo[$index]?'bg-opacity-70':'bg-opacity-0'"
+          class="absolute w-full h-full bg-black  flex justify-center items-center text-white pointer-events-none transition-all duration-200">{{item.name | uppercase}}</span>
+        </div>
+      }
+    }
+  </div>
+</div>

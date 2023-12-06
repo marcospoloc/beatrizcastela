@@ -1,0 +1,10 @@
+@if(item){
+  @for(img of item.images; track item){
+    <div class="frame-container" [ngStyle]="img.styles" >
+      @if(folder){
+          <ng-container *ngComponentOutlet="img.component;inputs: {'folder':folder,'url':img.image,'image':img};"/>
+      }
+    </div>
+    <span #trigger></span>
+  }
+}

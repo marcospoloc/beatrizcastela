@@ -1,0 +1,13 @@
+<div *ngIf="menu" class="bg-white w-screen flex flex-col justify-center items-center space-y-4 pt-4 pb-4 sticky -top-16 z-20">
+  <a (click)="navigateToHome()" class="text-black cursor-pointer">
+  <h1 class="p-2 text-xl">{{title|uppercase}}</h1>
+</a>
+  <nav  class="w-screen flex justify-center items-center space-x-12">
+    <a (click)="navigateToHome()" class="text-black cursor-pointer">PROYECTOS</a>
+    <ng-container *ngFor="let item of menu">
+      <ng-container *ngIf="!item.visible">
+      <a (click)="navigateTo(item)" class="text-black cursor-pointer" >{{item.name|uppercase}}</a>
+    </ng-container>
+  </ng-container>
+  </nav>
+</div>

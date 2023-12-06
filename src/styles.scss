@@ -1,1 +1,143 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+    @apply bg-bck;
+    width: 100%;
+    overflow-x: hidden;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+a{
+    color: rgb(47, 47, 47);
+    text-decoration: underline;
+}
+
+@keyframes fadeInAnimation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.fade-in {
+  opacity: 0;
+  animation: fadeInAnimation .5s ease-in-out both;
+}
+
+.dynamic-page{
+  @apply relative w-11/12 pt-8 pb-32 mx-auto flex h-auto flex-col justify-start items-center;
+  max-width: 98ch;
+
+  .images-widget{
+    @apply w-full;
+    &.images-flex{
+      @apply flex;
+    }
+    &.images-grid{
+      @apply grid overflow-hidden;
+    }
+
+    .youtube{
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; /* Asegura una relación de aspecto 16:9 (9 / 16 = 0.5625) */
+      iframe {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+        }
+    }
+
+  }
+
+  .text-widget{
+    @apply mb-2 mt-1 w-full;
+
+    .texto-normal{
+      .title{
+          color: black;
+          font-size: 0.8rem;
+      }
+      .subtitle{
+          color: dimgray;
+          font-size: 0.8rem;
+      }
+      .text{
+          color: gray;
+          font-size: 0.8rem;
+          font-style: italic;
+      }
+      .technique{
+          color: gray;
+          font-style: italic;
+          font-size: 0.8rem;
+      }
+      .location{
+          color: gray;
+          font-style: italic;
+          font-size: 0.8rem;
+      }
+    }
+
+    &.texto-principal{
+      font-size: 0.8rem;
+        .title{
+            color: black;
+            font-weight: bold;
+        }
+        .subtitle{
+          color: dimgray;
+        }
+        .text{
+            color: gray;
+            margin-top: 1rem;
+        }
+    }
+
+    .cv_title{
+        @apply mb-4;
+            color: rgb(55, 55, 55);
+            font-size: 0.8rem;
+    }
+
+    .cv_text{
+      @apply w-full;
+        &tr:nth-child(even){
+            font-size: 0.6rem;
+            color: gray;
+        }
+        &tr:nth-child(odd){
+            font-size: 0.8rem;
+            color: rgb(43, 43, 43);
+        }
+    }
+
+    &.texto-grid-2-cols{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap:1rem;
+      padding:1rem;
+      .subtitle{
+          margin-bottom: 2rem;
+          font-size: 0.8rem;
+      }
+      .text{
+        text-align: justify;
+        font-size: 0.8rem;
+      }
+      @media (max-width: 800px) {
+          grid-template-columns: 1fr;
+        }
+    }
+
+  }
+
+}
+
+
+
